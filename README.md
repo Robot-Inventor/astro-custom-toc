@@ -23,7 +23,7 @@ Add the plugin to your `astro.config.mjs`. **This plugin must be inserted before
 
 ```javascript
 import { defineConfig } from "astro/config";
-import customToc from "./src/plugins/remark-toc";
+import customToc from "astro-custom-toc";
 
 // https://astro.build/config
 export default defineConfig({
