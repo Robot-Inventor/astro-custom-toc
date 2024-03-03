@@ -1,0 +1,42 @@
+{
+  "name": "astro-custom-toc",
+  "version": "1.0.0",
+  "description": "Astro Integration to generate a customizable table of contents",
+  "type": "module",
+  "exports": {
+    ".": "./index.ts"
+  },
+  "files": [
+    "index.ts",
+    "remark-custom-toc.ts"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Robot-Inventor/astro-custom-toc.git"
+  },
+  "keywords": [
+    "astro",
+    "remark",
+    "markdown",
+    "astro-integration"
+  ],
+  "author": "Robot-Inventor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Robot-Inventor/astro-custom-toc/issues"
+  },
+  "homepage": "https://github.com/Robot-Inventor/astro-custom-toc#readme",
+  "dependencies": {
+    "github-slugger": "^2.0.0",
+    "jsdom": "^24.0.0",
+    "remark-comment": "^1.0.0",
+    "typescript": "^5.3.3",
+    "unist-util-visit": "^5.0.0"
+  },
+  "peerDependencies": {
+    "astro": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/jsdom": "^21.1.6"
+  }
+}
