@@ -94,7 +94,7 @@ const generateToc = (template: RemarkCustomTocTemplate, maxDepth: number, ordere
     const { document } = new JSDOM().window;
 
     const toc: HTMLElement = document.createElement(ordered ? "ol" : "ul");
-    let currentDepth = 2;
+    let currentDepth = headings[0].depth;
     let currentParent = toc;
     for (const heading of headings) {
         if (heading.depth > maxDepth) continue;
