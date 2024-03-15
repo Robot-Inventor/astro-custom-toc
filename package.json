@@ -5,7 +5,8 @@
   "scripts": {
     "build": "tsc",
     "format": "prettier ./src/ --write",
-    "format:check": "prettier ./src/ --check"
+    "format:check": "prettier ./src/ --check",
+    "prepublishOnly": "npm run build"
   },
   "type": "module",
   "main": "./dist/index.js",
