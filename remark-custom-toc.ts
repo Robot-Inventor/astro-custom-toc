@@ -55,11 +55,9 @@ export const remarkCustomToc: RemarkPlugin = ({
         slugs.reset();
 
         const headings: Heading[] = [];
-        visit(tree, "heading", (node) => {
+        visit(tree, "heading", (node): void => {
             const { depth } = node;
-            const textNode = node.children[0];
-            // @ts-ignore
-            const text = textNode ? textNode.value : "";
+            const text = node.children.map((n) => ("value" in n ? n.value : "")).join("");
             const slug = slugs.slug(text);
             // @ts-ignore
             node.data = { id: slug };
