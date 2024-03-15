@@ -2,13 +2,14 @@
   "name": "astro-custom-toc",
   "version": "1.0.4",
   "description": "Astro Integration to generate a customizable table of contents",
-  "type": "module",
-  "exports": {
-    ".": "./index.ts"
+  "scripts": {
+    "build": "npx tsc"
   },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
-    "index.ts",
-    "remark-custom-toc.ts"
+    "./dist/"
   ],
   "repository": {
     "type": "git",
