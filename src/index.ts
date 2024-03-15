@@ -1,5 +1,5 @@
 import type { AstroConfig, AstroIntegration } from "astro";
-import { remarkCustomToc, RemarkCustomTocOptions } from "./remark-custom-toc";
+import { remarkCustomToc, RemarkCustomTocOptions } from "./remark-custom-toc.js";
 import remarkComment from "remark-comment";
 
 const astroCustomToc = (options?: RemarkCustomTocOptions) => {
