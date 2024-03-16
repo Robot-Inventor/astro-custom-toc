@@ -36,6 +36,7 @@
   "dependencies": {
     "github-slugger": "^2.0.0",
     "jsdom": "^24.0.0",
+    "remark": "^15.0.1",
     "remark-comment": "^1.0.0",
     "typescript": "^5.3.3",
     "unist-util-visit": "^5.0.0"
