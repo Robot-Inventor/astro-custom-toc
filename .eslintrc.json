@@ -96,6 +96,19 @@
         ],
         "no-new": "off",
         "@typescript-eslint/explicit-function-return-type": "error",
-        "@typescript-eslint/explicit-member-accessibility": "error"
+        "@typescript-eslint/explicit-member-accessibility": "error",
+        "jsdoc/require-jsdoc": [
+            "error",
+            {
+                "require": {
+                    "ArrowFunctionExpression": true,
+                    "ClassDeclaration": true,
+                    "ClassExpression": true,
+                    "FunctionDeclaration": true,
+                    "FunctionExpression": true,
+                    "MethodDefinition": true
+                }
+            }
+        ]
     }
 }
