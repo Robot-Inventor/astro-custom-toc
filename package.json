@@ -7,7 +7,7 @@
     "format": "prettier ./src/ --write",
     "format:check": "prettier ./src/ --check",
     "lint": "npx eslint ./src/**/*.ts",
-    "prepublishOnly": "npm run build"
+    "version": "npm run build && git add ."
   },
   "type": "module",
   "main": "./dist/index.js",
