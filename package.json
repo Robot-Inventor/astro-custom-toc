@@ -2,12 +2,17 @@
   "name": "astro-custom-toc",
   "version": "1.1.4",
   "description": "Astro Integration to generate a customizable table of contents",
+  "publishConfig": {
+    "provenance": true
+  },
   "scripts": {
     "build": "tsc",
     "format": "prettier ./src/ --write",
     "format:check": "prettier ./src/ --check",
     "lint": "npx eslint ./src/**/*.ts",
-    "version": "npm run build && git add ."
+    "version": "npm run build && git add .",
+    "changeset-version": "changeset version && npm run version",
+    "changeset-publish": "npm run build && changeset publish"
   },
   "type": "module",
   "main": "./dist/index.js",
@@ -43,6 +48,8 @@
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "^0.5.0",
+    "@changesets/cli": "^2.27.1",
     "@robot-inventor/eslint-config": "^0.1.1",
     "@types/jsdom": "^21.1.6",
     "eslint": "^9.0.0",
