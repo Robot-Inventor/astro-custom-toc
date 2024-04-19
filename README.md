@@ -95,3 +95,30 @@ Default: `3`
 Whether to use an ordered list (`<ol>`) or an unordered list (`<ul>`).
 
 Default: `false`
+
+## Development
+
+```bash
+npm install
+```
+
+### Build
+
+```bash
+npm run build
+```
+
+### Format and Lint
+
+```bash
+npm run format
+npm run lint
+```
+
+### Pull Requests
+
+This repository uses [Changesets](https://github.com/changesets/changesets) to manage versioning and releases. When creating a pull request, please run the Changesets CLI and commit the changeset file.
+
+```bash
+npx changeset
+```
