@@ -1,5 +1,11 @@
 # astro-custom-toc
 
+## 1.1.12
+
+### Patch Changes
+
+- [#60](https://github.com/Robot-Inventor/astro-custom-toc/pull/60) [`97c0a63`](https://github.com/Robot-Inventor/astro-custom-toc/commit/97c0a637ad4215c94ead716cd7b70bd3caebce15) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency astro to v4.8.3
+
 ## 1.1.11
 
 ### Patch Changes
