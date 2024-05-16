@@ -1,5 +1,6 @@
 import type { AstroConfig, AstroIntegration } from "astro";
-import { RemarkCustomTocOptions, remarkCustomToc } from "./remark-custom-toc.js";
+import { Comment, RehypeCustomTocOptions, rehypeCustomToc } from "./rehype-custom-toc.js";
+import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 import remarkComment from "remark-comment";
 
 /**
@@ -26,7 +27,7 @@ MDX integration configured before astro-custom-toc.
  * @param options Options for the integration
  * @returns The AstroIntegration object
  */
-const astroCustomToc = (options?: RemarkCustomTocOptions): AstroIntegration => {
+const astroCustomToc = (options?: RehypeCustomTocOptions): AstroIntegration => {
     const integration: AstroIntegration = {
         hooks: {
             // eslint-disable-next-line jsdoc/require-jsdoc
@@ -40,9 +41,25 @@ const astroCustomToc = (options?: RemarkCustomTocOptions): AstroIntegration => {
                                 {
                                     ast: true
                                 }
-                            ],
-                            [remarkCustomToc, options]
-                        ]
+                            ]
+                        ],
+                        remarkRehype: {
+                            handlers: {
+                                /**
+                                 * Convert a mdast comment node to a hast comment node.
+                                 * @param _ State
+                                 * @param node mdast comment node
+                                 * @returns hast comment node
+                                 */
+                                // eslint-disable-next-line id-length
+                                comment: (_, node: Comment) => ({
+                                    type: "comment",
+                                    value: node.commentValue
+                                })
+                            }
+                        },
+                        // eslint-disable-next-line sort-keys
+                        rehypePlugins: [rehypeHeadingIds, [rehypeCustomToc, options]]
                     }
                 });
             }

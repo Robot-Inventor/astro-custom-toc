@@ -39,19 +39,21 @@
   },
   "homepage": "https://github.com/Robot-Inventor/astro-custom-toc#readme",
   "dependencies": {
+    "@astrojs/markdown-remark": "^5.1.0",
     "astro": "^4.5.17",
-    "github-slugger": "^2.0.0",
-    "jsdom": "^24.0.0",
-    "remark": "^15.0.1",
+    "hast": "^1.0.0",
+    "hast-util-from-html": "^2.0.1",
+    "hast-util-to-html": "^9.0.1",
+    "hastscript": "^9.0.0",
     "remark-comment": "^1.0.0",
     "typescript": "^5.3.3",
+    "unified": "^11.0.4",
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.0",
     "@changesets/cli": "^2.27.1",
     "@robot-inventor/eslint-config": "^0.1.1",
-    "@types/jsdom": "^21.1.6",
     "eslint": "^9.0.0",
     "prettier": "^3.2.5"
   }
