@@ -3,7 +3,7 @@
 Astro Integration to generate a customizable table of contents.
 
 > [!WARNING]
-> This plugin uses [remark-comment](https://github.com/leebyron/remark-comment). It may break other plug-ins that use comments.
+> This plugin uses [remark-comment](https://github.com/leebyron/remark-comment). It may break other plugins that use comments.
 
 ## Installation
 
