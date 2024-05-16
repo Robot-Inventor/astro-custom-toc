@@ -141,6 +141,7 @@ const generateToc = (options: Required<RehypeCustomTocOptions>, headings: Markdo
             for (let i = 0; i < currentDepth - heading.depth; i++) {
                 const parentNode = parents.pop();
                 if (!parentNode) throw new Error("Parent node not found. Make sure the headings are sorted by depth.");
+                // eslint-disable-next-line no-magic-numbers
                 currentParent = parents[parents.length - 1];
             }
 
