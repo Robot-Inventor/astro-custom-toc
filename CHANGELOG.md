@@ -1,5 +1,17 @@
 # astro-custom-toc
 
+## 2.0.0
+
+### Major Changes
+
+- [#67](https://github.com/Robot-Inventor/astro-custom-toc/pull/67) [`4220fb6`](https://github.com/Robot-Inventor/astro-custom-toc/commit/4220fb6509bd3209bcf8f31f63b9760774b865d3) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - feat: improve compatibility with other plugins #20
+
+  BREAKING CHANGE: The `astro-custom-toc` plugin now uses Astro's default headings plugin to generate slugs for headings. This may result in changes to the slugs of headings with complex child elements, potentially breaking existing links.
+
+### Patch Changes
+
+- [#66](https://github.com/Robot-Inventor/astro-custom-toc/pull/66) [`0c79c56`](https://github.com/Robot-Inventor/astro-custom-toc/commit/0c79c56ad18cc8e1dc661800e3de79078208a4cd) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency astro to v4.8.5
+
 ## 1.1.12
 
 ### Patch Changes
