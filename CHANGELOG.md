@@ -1,65 +1,71 @@
 # astro-custom-toc
 
+## 2.0.1
+
+### Patch Changes
+
+-   [#73](https://github.com/Robot-Inventor/astro-custom-toc/pull/73) [`eae1fd3`](https://github.com/Robot-Inventor/astro-custom-toc/commit/eae1fd3ee8028e2ae1e1f1793b7ec8720ab9f432) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency astro to v4.8.6
+
 ## 2.0.0
 
 ### Major Changes
 
-- [#67](https://github.com/Robot-Inventor/astro-custom-toc/pull/67) [`4220fb6`](https://github.com/Robot-Inventor/astro-custom-toc/commit/4220fb6509bd3209bcf8f31f63b9760774b865d3) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - feat: improve compatibility with other plugins #20
+-   [#67](https://github.com/Robot-Inventor/astro-custom-toc/pull/67) [`4220fb6`](https://github.com/Robot-Inventor/astro-custom-toc/commit/4220fb6509bd3209bcf8f31f63b9760774b865d3) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - feat: improve compatibility with other plugins #20
 
-  BREAKING CHANGE: The `astro-custom-toc` plugin now uses Astro's default headings plugin to generate slugs for headings. This may result in changes to the slugs of headings with complex child elements, potentially breaking existing links.
+    BREAKING CHANGE: The `astro-custom-toc` plugin now uses Astro's default headings plugin to generate slugs for headings. This may result in changes to the slugs of headings with complex child elements, potentially breaking existing links.
 
 ### Patch Changes
 
-- [#66](https://github.com/Robot-Inventor/astro-custom-toc/pull/66) [`0c79c56`](https://github.com/Robot-Inventor/astro-custom-toc/commit/0c79c56ad18cc8e1dc661800e3de79078208a4cd) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency astro to v4.8.5
+-   [#66](https://github.com/Robot-Inventor/astro-custom-toc/pull/66) [`0c79c56`](https://github.com/Robot-Inventor/astro-custom-toc/commit/0c79c56ad18cc8e1dc661800e3de79078208a4cd) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency astro to v4.8.5
 
 ## 1.1.12
 
 ### Patch Changes
 
-- [#60](https://github.com/Robot-Inventor/astro-custom-toc/pull/60) [`97c0a63`](https://github.com/Robot-Inventor/astro-custom-toc/commit/97c0a637ad4215c94ead716cd7b70bd3caebce15) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency astro to v4.8.3
+-   [#60](https://github.com/Robot-Inventor/astro-custom-toc/pull/60) [`97c0a63`](https://github.com/Robot-Inventor/astro-custom-toc/commit/97c0a637ad4215c94ead716cd7b70bd3caebce15) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency astro to v4.8.3
 
 ## 1.1.11
 
 ### Patch Changes
 
-- [#57](https://github.com/Robot-Inventor/astro-custom-toc/pull/57) [`a0df11e`](https://github.com/Robot-Inventor/astro-custom-toc/commit/a0df11e28c690e43236337b605f34ec799340fa0) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency astro to v4.8.2
+-   [#57](https://github.com/Robot-Inventor/astro-custom-toc/pull/57) [`a0df11e`](https://github.com/Robot-Inventor/astro-custom-toc/commit/a0df11e28c690e43236337b605f34ec799340fa0) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency astro to v4.8.2
 
 ## 1.1.10
 
 ### Patch Changes
 
-- [#56](https://github.com/Robot-Inventor/astro-custom-toc/pull/56) [`d1b2378`](https://github.com/Robot-Inventor/astro-custom-toc/commit/d1b2378ab21608be482445364b740a13e3936538) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency astro to v4.8.1
+-   [#56](https://github.com/Robot-Inventor/astro-custom-toc/pull/56) [`d1b2378`](https://github.com/Robot-Inventor/astro-custom-toc/commit/d1b2378ab21608be482445364b740a13e3936538) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency astro to v4.8.1
 
-- [#54](https://github.com/Robot-Inventor/astro-custom-toc/pull/54) [`40e92b5`](https://github.com/Robot-Inventor/astro-custom-toc/commit/40e92b59f18661678e349501fed9a868193d03a9) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency astro to v4.8.0
+-   [#54](https://github.com/Robot-Inventor/astro-custom-toc/pull/54) [`40e92b5`](https://github.com/Robot-Inventor/astro-custom-toc/commit/40e92b59f18661678e349501fed9a868193d03a9) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency astro to v4.8.0
 
 ## 1.1.9
 
 ### Patch Changes
 
-- [#51](https://github.com/Robot-Inventor/astro-custom-toc/pull/51) [`c5c117e`](https://github.com/Robot-Inventor/astro-custom-toc/commit/c5c117e92f4151d41bc76ff6cffddfdca2b77da0) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency astro to v4.7.1
+-   [#51](https://github.com/Robot-Inventor/astro-custom-toc/pull/51) [`c5c117e`](https://github.com/Robot-Inventor/astro-custom-toc/commit/c5c117e92f4151d41bc76ff6cffddfdca2b77da0) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency astro to v4.7.1
 
 ## 1.1.8
 
 ### Patch Changes
 
-- [#49](https://github.com/Robot-Inventor/astro-custom-toc/pull/49) [`64722a5`](https://github.com/Robot-Inventor/astro-custom-toc/commit/64722a5685c5c16aade507dd30222922df451b71) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency astro to v4.7.0
+-   [#49](https://github.com/Robot-Inventor/astro-custom-toc/pull/49) [`64722a5`](https://github.com/Robot-Inventor/astro-custom-toc/commit/64722a5685c5c16aade507dd30222922df451b71) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency astro to v4.7.0
 
 ## 1.1.7
 
 ### Patch Changes
 
-- [#48](https://github.com/Robot-Inventor/astro-custom-toc/pull/48) [`98a37c0`](https://github.com/Robot-Inventor/astro-custom-toc/commit/98a37c0e1794adcfdb355f77c4f71b075971658c) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency astro to v4.6.4
+-   [#48](https://github.com/Robot-Inventor/astro-custom-toc/pull/48) [`98a37c0`](https://github.com/Robot-Inventor/astro-custom-toc/commit/98a37c0e1794adcfdb355f77c4f71b075971658c) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency astro to v4.6.4
 
-- [#44](https://github.com/Robot-Inventor/astro-custom-toc/pull/44) [`b25a964`](https://github.com/Robot-Inventor/astro-custom-toc/commit/b25a964df3e15b9d5c1de238e78eac9a67d74c7f) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - add Pull Requests section to README
+-   [#44](https://github.com/Robot-Inventor/astro-custom-toc/pull/44) [`b25a964`](https://github.com/Robot-Inventor/astro-custom-toc/commit/b25a964df3e15b9d5c1de238e78eac9a67d74c7f) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - add Pull Requests section to README
 
 ## 1.1.6
 
 ### Patch Changes
 
-- [#42](https://github.com/Robot-Inventor/astro-custom-toc/pull/42) [`6f2db3b`](https://github.com/Robot-Inventor/astro-custom-toc/commit/6f2db3b29aa2edeb4b6a57a8a480473eef8e7b90) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency astro to v4.6.3
+-   [#42](https://github.com/Robot-Inventor/astro-custom-toc/pull/42) [`6f2db3b`](https://github.com/Robot-Inventor/astro-custom-toc/commit/6f2db3b29aa2edeb4b6a57a8a480473eef8e7b90) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency astro to v4.6.3
 
 ## 1.1.5
 
 ### Patch Changes
 
-- [#40](https://github.com/Robot-Inventor/astro-custom-toc/pull/40) [`1bf215a`](https://github.com/Robot-Inventor/astro-custom-toc/commit/1bf215ab75b1c8cff1e6709cea9ba9bb3db0e3c6) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - ci: use Changesets and auto release
+-   [#40](https://github.com/Robot-Inventor/astro-custom-toc/pull/40) [`1bf215a`](https://github.com/Robot-Inventor/astro-custom-toc/commit/1bf215ab75b1c8cff1e6709cea9ba9bb3db0e3c6) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - ci: use Changesets and auto release
