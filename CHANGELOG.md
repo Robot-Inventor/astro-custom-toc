@@ -1,5 +1,13 @@
 # astro-custom-toc
 
+## 2.0.2
+
+### Patch Changes
+
+-   [#79](https://github.com/Robot-Inventor/astro-custom-toc/pull/79) [`afe7c50`](https://github.com/Robot-Inventor/astro-custom-toc/commit/afe7c50b96388855d5189a00ecab6a9bc1b3a1a2) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - refactor: improve ToC generation
+
+-   [#78](https://github.com/Robot-Inventor/astro-custom-toc/pull/78) [`7d19ef2`](https://github.com/Robot-Inventor/astro-custom-toc/commit/7d19ef2d6e10b5674ec300a1bdb5db503bb9b37e) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - refactor: improve error handling
+
 ## 2.0.1
 
 ### Patch Changes
