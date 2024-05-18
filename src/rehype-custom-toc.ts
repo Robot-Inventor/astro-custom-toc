@@ -170,17 +170,17 @@ export const rehypeCustomToc: Plugin<[RehypeCustomTocOptions], Root> = (userOpti
     const transformer: Transformer<Root> = (tree: Root, { data }) => {
         if (!data.astro || data.astro.frontmatter.showToc !== true) return;
 
+        /* eslint-disable no-underscore-dangle */
+        if (!data.__astroHeadings) throw new Error("Headings data not found in the file data.");
+        const headings = data.__astroHeadings;
+        /* eslint-enable no-underscore-dangle */
+
         let tocIndex = 0;
         visit<Root, string>(tree, "comment", (node, index) => {
             if (node.type === "comment" && node.value.trim().toLowerCase() === "toc" && typeof index !== "undefined") {
                 tocIndex = index;
             }
         });
-
-        /* eslint-disable no-underscore-dangle */
-        if (!data.__astroHeadings) throw new Error("Headings data not found in the file data.");
-        const headings = data.__astroHeadings;
-        /* eslint-enable no-underscore-dangle */
 
         const toc = generateToc(options, headings);
         if (tocIndex) {
