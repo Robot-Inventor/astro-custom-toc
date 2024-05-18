@@ -139,10 +139,12 @@ const generateToc = (options: Required<RehypeCustomTocOptions>, headings: Markdo
             // The current heading is at a shallower level than the previous one.
             // eslint-disable-next-line id-length
             for (let i = 0; i < currentDepth - heading.depth; i++) {
-                const parentNode = parents.pop();
-                if (!parentNode) throw new Error("Parent node not found. Make sure the headings are sorted by depth.");
+                parents.pop();
                 // eslint-disable-next-line no-magic-numbers
-                currentParent = parents[parents.length - 1];
+                const parentNode = parents[parents.length - 1];
+                if (!parentNode) throw new Error("Parent node not found. Make sure the headings are sorted by depth.");
+
+                currentParent = parentNode;
             }
 
             currentParent.children.push(li);
