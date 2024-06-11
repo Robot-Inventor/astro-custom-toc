@@ -1,5 +1,13 @@
 # astro-custom-toc
 
+## 2.0.9
+
+### Patch Changes
+
+-   [#114](https://github.com/Robot-Inventor/astro-custom-toc/pull/114) [`fe095e8`](https://github.com/Robot-Inventor/astro-custom-toc/commit/fe095e8c6e580a254b61449d49fc8f664d9fe369) Thanks [@dependabot](https://github.com/apps/dependabot)! - build(deps): bump braces from 3.0.2 to 3.0.3
+
+-   [#116](https://github.com/Robot-Inventor/astro-custom-toc/pull/116) [`cbf7bbe`](https://github.com/Robot-Inventor/astro-custom-toc/commit/cbf7bbe97deecd7a35d60552b5a4c96c0c8a8816) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency astro to v4.10.2
+
 ## 2.0.8
 
 ### Patch Changes
