@@ -1,5 +1,11 @@
 # astro-custom-toc
 
+## 2.0.11
+
+### Patch Changes
+
+-   [#131](https://github.com/Robot-Inventor/astro-custom-toc/pull/131) [`84ed3a4`](https://github.com/Robot-Inventor/astro-custom-toc/commit/84ed3a4da2d244b6b8a76dd360292aa137fbb05e) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update astro monorepo
+
 ## 2.0.10
 
 ### Patch Changes
