@@ -1,6 +1,6 @@
 {
   "name": "astro-custom-toc",
-  "version": "2.0.11",
+  "version": "2.0.12",
   "description": "Astro Integration to generate a customizable table of contents",
   "publishConfig": {
     "provenance": true
