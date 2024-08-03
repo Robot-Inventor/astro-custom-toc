@@ -104,7 +104,7 @@ const DEFAULT_OPTIONS = {
  * @param headings Headings data
  * @returns The generated table of contents
  */
-// eslint-disable-next-line max-statements
+// eslint-disable-next-line max-statements, max-lines-per-function
 const generateToc = (options: Required<RehypeCustomTocOptions>, headings: MarkdownHeading[]): RootContent[] => {
     const toc: Element = {
         children: [],
@@ -141,8 +141,11 @@ const generateToc = (options: Required<RehypeCustomTocOptions>, headings: Markdo
             for (let i = 0; i < currentDepth - heading.depth; i++) {
                 parents.pop();
                 // eslint-disable-next-line no-magic-numbers
+                if (parents.length < 1) {
+                    throw new Error("Parent node not found. Make sure the headings are sorted by depth.");
+                }
+                // eslint-disable-next-line no-magic-numbers
                 const parentNode = parents[parents.length - 1];
-                if (!parentNode) throw new Error("Parent node not found. Make sure the headings are sorted by depth.");
 
                 currentParent = parentNode;
             }
