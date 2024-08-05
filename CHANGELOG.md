@@ -1,5 +1,13 @@
 # astro-custom-toc
 
+## 2.0.16
+
+### Patch Changes
+
+-   [#157](https://github.com/Robot-Inventor/astro-custom-toc/pull/157) [`2052746`](https://github.com/Robot-Inventor/astro-custom-toc/commit/2052746d85a715d9136c1830b94a49af6317cfa3) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency @robot-inventor/eslint-config to v1
+
+-   [#160](https://github.com/Robot-Inventor/astro-custom-toc/pull/160) [`9627086`](https://github.com/Robot-Inventor/astro-custom-toc/commit/9627086c3d7e65746a2fb4cb30ca6bd2727dc7d5) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency @robot-inventor/eslint-config to v2
+
 ## 2.0.15
 
 ### Patch Changes
