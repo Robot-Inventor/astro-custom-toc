@@ -1,5 +1,5 @@
 import type { AstroConfig, AstroIntegration } from "astro";
-import { Comment, RehypeCustomTocOptions, rehypeCustomToc } from "./rehype-custom-toc.js";
+import { type Comment, type RehypeCustomTocOptions, rehypeCustomToc } from "./rehype-custom-toc.js";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 import remarkComment from "remark-comment";
 
