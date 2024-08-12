@@ -1,5 +1,11 @@
 # astro-custom-toc
 
+## 2.0.19
+
+### Patch Changes
+
+-   [#175](https://github.com/Robot-Inventor/astro-custom-toc/pull/175) [`5c2a570`](https://github.com/Robot-Inventor/astro-custom-toc/commit/5c2a570a35a4da14780e3d2bc46bc1c2bd5b593c) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - fix: fix some ESLint errors
+
 ## 2.0.18
 
 ### Patch Changes
