@@ -1,5 +1,13 @@
 # astro-custom-toc
 
+## 2.0.24
+
+### Patch Changes
+
+-   [#196](https://github.com/Robot-Inventor/astro-custom-toc/pull/196) [`2c441e2`](https://github.com/Robot-Inventor/astro-custom-toc/commit/2c441e2314e217fc55894f4a48870274f8fe2f0b) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency astro to v4.14.4
+
+-   [#197](https://github.com/Robot-Inventor/astro-custom-toc/pull/197) [`de5cdb3`](https://github.com/Robot-Inventor/astro-custom-toc/commit/de5cdb365d6b761500b94b62f1a99140c4ff4e5e) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency hast-util-from-html to v2.0.2
+
 ## 2.0.23
 
 ### Patch Changes
