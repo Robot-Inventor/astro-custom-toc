@@ -1,5 +1,11 @@
 # astro-custom-toc
 
+## 2.0.31
+
+### Patch Changes
+
+-   [#225](https://github.com/Robot-Inventor/astro-custom-toc/pull/225) [`fa193ca`](https://github.com/Robot-Inventor/astro-custom-toc/commit/fa193ca7f66a11a327f572192943d69c86f41f63) Thanks [@dependabot](https://github.com/apps/dependabot)! - build(deps): bump dset from 3.1.3 to 3.1.4
+
 ## 2.0.30
 
 ### Patch Changes
