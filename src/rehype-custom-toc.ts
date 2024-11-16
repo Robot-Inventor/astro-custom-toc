@@ -1,4 +1,5 @@
 import type { Element, Root, RootContent } from "hast";
+import { type NonEmptyArray, isNonEmptyArray } from "@robot-inventor/ts-utils";
 import type { Plugin, Transformer } from "unified";
 import type { MarkdownHeading } from "@astrojs/markdown-remark";
 import { fromHtml } from "hast-util-from-html";
@@ -105,7 +106,10 @@ const DEFAULT_OPTIONS = {
  * @returns The generated table of contents
  */
 // eslint-disable-next-line max-statements, max-lines-per-function
-const generateToc = (options: Required<RehypeCustomTocOptions>, headings: MarkdownHeading[]): RootContent[] => {
+const generateToc = (
+    options: Required<RehypeCustomTocOptions>,
+    headings: NonEmptyArray<MarkdownHeading>
+): RootContent[] => {
     const toc: Element = {
         children: [],
         properties: {},
@@ -141,11 +145,10 @@ const generateToc = (options: Required<RehypeCustomTocOptions>, headings: Markdo
             for (let i = 0; i < currentDepth - heading.depth; i++) {
                 parents.pop();
                 // eslint-disable-next-line no-magic-numbers
-                if (parents.length < 1) {
+                const parentNode = parents[parents.length - 1];
+                if (!parentNode) {
                     throw new Error("Parent node not found. Make sure the headings are sorted by depth.");
                 }
-                // eslint-disable-next-line no-magic-numbers
-                const parentNode = parents[parents.length - 1];
 
                 currentParent = parentNode;
             }
@@ -173,12 +176,14 @@ const rehypeCustomToc: Plugin<[RehypeCustomTocOptions], Root> = (userOptions: Re
      * @param vFile.data The VFile data
      */
     const transformer: Transformer<Root> = (tree: Root, { data }) => {
-        if (!data.astro || data.astro.frontmatter.showToc !== true) return;
+        if (!data.astro || data.astro.frontmatter["showToc"] !== true) return;
 
         /* eslint-disable no-underscore-dangle */
         if (!data.__astroHeadings) throw new Error("Headings data not found in the file data.");
         const headings = data.__astroHeadings;
         /* eslint-enable no-underscore-dangle */
+
+        if (!isNonEmptyArray(headings)) return;
 
         let tocIndex = 0;
         visit<Root, string>(tree, "comment", (node, index) => {
