@@ -1,5 +1,13 @@
 # astro-custom-toc
 
+## 2.0.36
+
+### Patch Changes
+
+-   [#258](https://github.com/Robot-Inventor/astro-custom-toc/pull/258) [`c90265d`](https://github.com/Robot-Inventor/astro-custom-toc/commit/c90265d46bd8d117f946d17bdb5e4d2b94f96cac) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - chore: improve type safety
+
+-   [#251](https://github.com/Robot-Inventor/astro-custom-toc/pull/251) [`e795164`](https://github.com/Robot-Inventor/astro-custom-toc/commit/e795164a2be00a88be16a8f2831b167b1f7beb20) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency astro to v4.16.13
+
 ## 2.0.35
 
 ### Patch Changes
