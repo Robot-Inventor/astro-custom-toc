@@ -175,10 +175,8 @@ const rehypeCustomToc: Plugin<[RehypeCustomTocOptions], Root> = (userOptions: Re
     const transformer: Transformer<Root> = (tree: Root, { data }) => {
         if (!data.astro?.frontmatter || data.astro.frontmatter["showToc"] !== true) return;
 
-        /* eslint-disable no-underscore-dangle */
-        if (!data.__astroHeadings) throw new Error("Headings data not found in the file data.");
-        const headings = data.__astroHeadings;
-        /* eslint-enable no-underscore-dangle */
+        const { headings } = data.astro;
+        if (!headings) throw new Error("Headings data not found in the file data.");
 
         if (!isNonEmptyArray(headings)) return;
 
