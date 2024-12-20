@@ -69,9 +69,6 @@ interface RehypeCustomTocOptions {
 
 declare module "vfile" {
     interface DataMap {
-        astro?: {
-            frontmatter: Record<string, unknown>;
-        };
         __astroHeadings: MarkdownHeading[];
     }
 }
@@ -176,7 +173,7 @@ const rehypeCustomToc: Plugin<[RehypeCustomTocOptions], Root> = (userOptions: Re
      * @param vFile.data The VFile data
      */
     const transformer: Transformer<Root> = (tree: Root, { data }) => {
-        if (!data.astro || data.astro.frontmatter["showToc"] !== true) return;
+        if (!data.astro?.frontmatter || data.astro.frontmatter["showToc"] !== true) return;
 
         /* eslint-disable no-underscore-dangle */
         if (!data.__astroHeadings) throw new Error("Headings data not found in the file data.");
