@@ -1,5 +1,11 @@
 # astro-custom-toc
 
+## 2.0.39
+
+### Patch Changes
+
+- [#284](https://github.com/Robot-Inventor/astro-custom-toc/pull/284) [`82dc642`](https://github.com/Robot-Inventor/astro-custom-toc/commit/82dc642b5c04428194c477fadf9bdbd6923e20ed) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - chore: update vulnerable dependencies
+
 ## 2.0.38
 
 ### Patch Changes
