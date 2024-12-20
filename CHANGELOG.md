@@ -1,5 +1,11 @@
 # astro-custom-toc
 
+## 2.0.40
+
+### Patch Changes
+
+- [#286](https://github.com/Robot-Inventor/astro-custom-toc/pull/286) [`c1641ad`](https://github.com/Robot-Inventor/astro-custom-toc/commit/c1641ad6b723729430500b36e11ce42047c5ccd5) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - fix: resolve "Headings data not found in the file data" error
+
 ## 2.0.39
 
 ### Patch Changes
