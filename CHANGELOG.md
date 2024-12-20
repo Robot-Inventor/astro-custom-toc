@@ -1,5 +1,11 @@
 # astro-custom-toc
 
+## 2.0.38
+
+### Patch Changes
+
+- [#280](https://github.com/Robot-Inventor/astro-custom-toc/pull/280) [`3e1a863`](https://github.com/Robot-Inventor/astro-custom-toc/commit/3e1a86348468ffe7eb786c72eb5868713828b451) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - chore: move astro from dependencies to devDependencies
+
 ## 2.0.37
 
 ### Patch Changes
