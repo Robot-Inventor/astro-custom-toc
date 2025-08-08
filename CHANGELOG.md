@@ -1,5 +1,17 @@
 # astro-custom-toc
 
+## 2.0.43
+
+### Patch Changes
+
+- [#355](https://github.com/Robot-Inventor/astro-custom-toc/pull/355) [`aa65161`](https://github.com/Robot-Inventor/astro-custom-toc/commit/aa651616184886db237abdc37a2dafb86e8fa2a1) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency astro to v5.12.8 [security]
+
+- [#352](https://github.com/Robot-Inventor/astro-custom-toc/pull/352) [`f922ec4`](https://github.com/Robot-Inventor/astro-custom-toc/commit/f922ec45078d3d582d868e402052f8f11dc7bfe4) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @robot-inventor/ts-utils to ^0.8.0
+
+- [#357](https://github.com/Robot-Inventor/astro-custom-toc/pull/357) [`93da917`](https://github.com/Robot-Inventor/astro-custom-toc/commit/93da9177e855dbd4d85d9ac64302c1612ffe1da9) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency astro to v5.12.9
+
+- [#347](https://github.com/Robot-Inventor/astro-custom-toc/pull/347) [`fa98710`](https://github.com/Robot-Inventor/astro-custom-toc/commit/fa987101edcece639ddfa888b66b5b5aa95db8c4) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update astro monorepo
+
 ## 2.0.42
 
 ### Patch Changes
