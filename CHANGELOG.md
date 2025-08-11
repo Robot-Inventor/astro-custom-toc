@@ -1,5 +1,13 @@
 # astro-custom-toc
 
+## 2.0.44
+
+### Patch Changes
+
+- [#363](https://github.com/Robot-Inventor/astro-custom-toc/pull/363) [`320de3e`](https://github.com/Robot-Inventor/astro-custom-toc/commit/320de3e78e04a60a87f13fa1ae063677d4116c02) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - ci: migrate from npm token to trusted publishing
+
+- [#359](https://github.com/Robot-Inventor/astro-custom-toc/pull/359) [`8b209f4`](https://github.com/Robot-Inventor/astro-custom-toc/commit/8b209f4c40f7df396667856e452634319779abfa) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @robot-inventor/ts-utils to v0.8.1
+
 ## 2.0.43
 
 ### Patch Changes
