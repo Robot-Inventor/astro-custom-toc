@@ -1,6 +1,6 @@
 # astro-custom-toc
 
-Astro Integration to generate a customizable table of contents.
+Astro Integration to generate a customizable table of contents. This is a convenient wrapper for [rehype-custom-toc](https://github.com/Robot-Inventor/rehype-custom-toc/).
 
 > [!WARNING]
 > This plugin uses [remark-comment](https://github.com/leebyron/remark-comment). It may break other plugins that use comments.
@@ -56,45 +56,7 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 
 ## Options
 
-```typescript
-type RemarkCustomTocTemplate = (html: string) => string;
-
-interface RemarkCustomTocOptions {
-    template?: RemarkCustomTocTemplate;
-    maxDepth?: number;
-    ordered?: boolean;
-}
-```
-
-### `template`
-
-A function that takes the generated HTML and returns the final HTML. This can be used to wrap the generated HTML in a custom template.
-
-Default:
-
-```javascript
-const defaultTemplate = (html) => {
-    return `
-<aside class="toc">
-    <h2>Contents</h2>
-    <nav>
-        ${html}
-    </nav>
-</aside>`.trim();
-};
-```
-
-### `maxDepth`
-
-The maximum depth of headings to include in the table of contents.
-
-Default: `3`
-
-### `ordered`
-
-Whether to use an ordered list (`<ol>`) or an unordered list (`<ul>`).
-
-Default: `false`
+All options of rehype-custom-toc can be used in this plugin. Please refer to the [rehype-custom-toc documentation](https://github.com/Robot-Inventor/rehype-custom-toc/) for options.
 
 ## Development
 
