@@ -1,5 +1,13 @@
 # astro-custom-toc
 
+## 3.0.0
+
+### Major Changes
+
+- [#410](https://github.com/Robot-Inventor/astro-custom-toc/pull/410) [`ff4280d`](https://github.com/Robot-Inventor/astro-custom-toc/commit/ff4280d8399e8347d1e7925422b0ea44bab743d7) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - feat: changed to use rehype-custom-toc internally
+
+    In most cases, you should not feel any difference from before, but in a very small number of cases, slightly different behavior may be observed.
+
 ## 2.0.46
 
 ### Patch Changes
