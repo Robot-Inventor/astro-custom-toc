@@ -1,7 +1,23 @@
 import type { AstroConfig, AstroIntegration } from "astro";
-import { type Comment, type RehypeCustomTocOptions, rehypeCustomToc } from "./rehype-custom-toc.js";
+import {
+    type Comment,
+    type RehypeCustomTocOptions,
+    type RehypeCustomTocTemplate,
+    rehypeCustomToc
+} from "./rehype-custom-toc.js";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 import remarkComment from "remark-comment";
+
+declare module "mdast" {
+    // Add the `Comment` node to the list of nodes.
+    interface RootContentMap {
+        comment: Comment;
+    }
+
+    interface Data {
+        id: string;
+    }
+}
 
 /**
  * Check if the order of integrations is correct.
@@ -71,3 +87,4 @@ const astroCustomToc = (options?: RehypeCustomTocOptions): AstroIntegration => {
 };
 
 export default astroCustomToc;
+export type { RehypeCustomTocOptions, RehypeCustomTocTemplate };
