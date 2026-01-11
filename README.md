@@ -1,6 +1,6 @@
 # astro-custom-toc
 
-Astro Integration to generate a customizable table of contents. This is a convenient wrapper for [rehype-custom-toc](https://github.com/Robot-Inventor/rehype-custom-toc/).
+Astro Integration to generate a customizable table of contents. This is a convenient wrapper for [rehype-custom-toc](https://github.com/Robot-Inventor/rehype-custom-toc/). If you are not using Astro, you can directly use rehype-custom-toc instead.
 
 > [!WARNING]
 > This plugin uses [remark-comment](https://github.com/leebyron/remark-comment). It may break other plugins that use comments.
