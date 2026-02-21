@@ -1,5 +1,11 @@
 # astro-custom-toc
 
+## 3.0.3
+
+### Patch Changes
+
+- [#434](https://github.com/Robot-Inventor/astro-custom-toc/pull/434) [`ccc0937`](https://github.com/Robot-Inventor/astro-custom-toc/commit/ccc09378f8c2996c2356542fd36ce8ca96971fa0) Thanks [@dependabot](https://github.com/apps/dependabot)! - chore(deps-dev): bump devalue from 5.6.2 to 5.6.3
+
 ## 3.0.2
 
 ### Patch Changes
