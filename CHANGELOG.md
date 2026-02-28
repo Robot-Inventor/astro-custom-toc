@@ -1,5 +1,13 @@
 # astro-custom-toc
 
+## 3.0.4
+
+### Patch Changes
+
+- [#441](https://github.com/Robot-Inventor/astro-custom-toc/pull/441) [`e243b6e`](https://github.com/Robot-Inventor/astro-custom-toc/commit/e243b6e03bf3336718ed613981dfc5a3d57d486e) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - chore: update vulnerable dependencies
+
+- [#440](https://github.com/Robot-Inventor/astro-custom-toc/pull/440) [`55c7d1f`](https://github.com/Robot-Inventor/astro-custom-toc/commit/55c7d1f431a4ce7026c07fd677a0f60bab777bbf) Thanks [@dependabot](https://github.com/apps/dependabot)! - chore(deps): bump minimatch
+
 ## 3.0.3
 
 ### Patch Changes
