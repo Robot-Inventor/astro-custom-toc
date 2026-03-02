@@ -1,5 +1,11 @@
 # astro-custom-toc
 
+## 3.0.5
+
+### Patch Changes
+
+- [#443](https://github.com/Robot-Inventor/astro-custom-toc/pull/443) [`44bcb31`](https://github.com/Robot-Inventor/astro-custom-toc/commit/44bcb310239efd081110cec714ed2752830d0ae2) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency rehype-custom-toc to v1.0.2
+
 ## 3.0.4
 
 ### Patch Changes
