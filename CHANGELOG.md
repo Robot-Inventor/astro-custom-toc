@@ -1,5 +1,11 @@
 # astro-custom-toc
 
+## 3.0.6
+
+### Patch Changes
+
+- [#447](https://github.com/Robot-Inventor/astro-custom-toc/pull/447) [`0168f46`](https://github.com/Robot-Inventor/astro-custom-toc/commit/0168f46b96fc6f506e942fd79ea9d151d7f07cb2) Thanks [@dependabot](https://github.com/apps/dependabot)! - chore(deps-dev): bump svgo from 4.0.0 to 4.0.1
+
 ## 3.0.5
 
 ### Patch Changes
