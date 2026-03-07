@@ -51,7 +51,7 @@
     "@robot-inventor/eslint-config": "^11.0.0",
     "@robot-inventor/tsconfig-base": "^7.0.0",
     "astro": "^5.1.1",
-    "eslint": "^9.0.0",
+    "eslint": "^10.0.0",
     "knip": "^5.80.2",
     "prettier": "^3.2.5",
     "typescript": "^5.9.2",
