@@ -1,5 +1,13 @@
 # astro-custom-toc
 
+## 4.0.2
+
+### Patch Changes
+
+- [#464](https://github.com/Robot-Inventor/astro-custom-toc/pull/464) [`d61a633`](https://github.com/Robot-Inventor/astro-custom-toc/commit/d61a6338ce033afbc06f1bf98b750c24b8490388) Thanks [@dependabot](https://github.com/apps/dependabot)! - chore(deps-dev): bump flatted from 3.3.1 to 3.4.2
+
+- [#462](https://github.com/Robot-Inventor/astro-custom-toc/pull/462) [`7390b95`](https://github.com/Robot-Inventor/astro-custom-toc/commit/7390b95e9c0743e534efb7d7d4f7b23be81b3d02) Thanks [@dependabot](https://github.com/apps/dependabot)! - chore(deps-dev): bump h3 from 1.15.5 to 1.15.8
+
 ## 4.0.1
 
 ### Patch Changes
