@@ -23,7 +23,8 @@ const rehypeCustomToc: Plugin<[RehypeCustomTocOptions], Root> = (userOptions: Re
     const transformer = createBaseTransformer(userOptions) as (tree: Root, file: VFile) => unknown;
 
     return (tree: Root, file) => {
-        if (!file.data.astro?.frontmatter || file.data.astro.frontmatter["showToc"] !== true) return;
+        // @ts-expect-error Disable a TypeScript rule because it conflicts with an ESLint rule.
+        if (file.data.astro?.frontmatter?.showToc !== true) return;
         void transformer(tree, file);
     };
 };
