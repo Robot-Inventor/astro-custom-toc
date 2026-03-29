@@ -1,5 +1,15 @@
 # astro-custom-toc
 
+## 4.0.4
+
+### Patch Changes
+
+- [#476](https://github.com/Robot-Inventor/astro-custom-toc/pull/476) [`680e923`](https://github.com/Robot-Inventor/astro-custom-toc/commit/680e923053e34668b2256d987c0737b2312662fd) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - refactor: use optional chain
+
+- [#474](https://github.com/Robot-Inventor/astro-custom-toc/pull/474) [`96964e3`](https://github.com/Robot-Inventor/astro-custom-toc/commit/96964e31fd800b462ec80b79975ace52976c1648) Thanks [@dependabot](https://github.com/apps/dependabot)! - chore(deps): bump picomatch
+
+- [#472](https://github.com/Robot-Inventor/astro-custom-toc/pull/472) [`bc4eee3`](https://github.com/Robot-Inventor/astro-custom-toc/commit/bc4eee3b506f0a6ea5713004cf1d528d7c2e1aa8) Thanks [@dependabot](https://github.com/apps/dependabot)! - chore(deps): bump smol-toml from 1.6.0 to 1.6.1
+
 ## 4.0.3
 
 ### Patch Changes
