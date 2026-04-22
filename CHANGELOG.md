@@ -1,5 +1,11 @@
 # astro-custom-toc
 
+## 4.0.6
+
+### Patch Changes
+
+- [#487](https://github.com/Robot-Inventor/astro-custom-toc/pull/487) [`c7fa14a`](https://github.com/Robot-Inventor/astro-custom-toc/commit/c7fa14a251b075f9e1f77310b938163f57aa1811) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency @astrojs/markdown-remark to v7.1.1
+
 ## 4.0.5
 
 ### Patch Changes
