@@ -5,6 +5,9 @@ Astro Integration to generate a customizable table of contents. This is a conven
 > [!WARNING]
 > This plugin uses [remark-comment](https://github.com/leebyron/remark-comment). It may break other plugins that use comments.
 
+> [!TIP]
+> Since astro-custom-toc v5 supports only Astro v7, please use v4 if you are using Astro v6.
+
 ## Installation
 
 ```bash
@@ -19,7 +22,7 @@ Install the package
 npm install astro-custom-toc
 ```
 
-Add the plugin to your `astro.config.mjs`. **This plugin must be inserted before the [mdx()](https://github.com/withastro/astro/tree/main/packages/integrations/mdx/) plugin if you are using it.**
+Add the plugin to your `astro.config.mjs`.
 
 ```javascript
 import { defineConfig } from "astro/config";
@@ -28,13 +31,13 @@ import customToc from "astro-custom-toc";
 // https://astro.build/config
 export default defineConfig({
     // ... other config
-    integrations: [customToc(), mdx()]
+    integrations: [customToc()]
 });
 ```
 
 ## Usage
 
-To include a table of contents in your markdown file, add ``showToc: true`` to the frontmatter of the markdown file. The table of contents will be inserted at the location of the `<!-- toc -->` comment or at the beginning of the file if no comment is found.
+To include a table of contents in your markdown file, add `showToc: true` to the frontmatter of the markdown file. The table of contents will be inserted at the location of the `<!-- toc -->` comment or at the beginning of the file if no comment is found.
 
 ```markdown
 ---
