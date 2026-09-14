@@ -166,9 +166,9 @@ const createHeadingCollector = (): HastPluginDefinition =>
                 const depth = Number.parseInt(node.tagName.slice(1), 10);
                 // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
                 const existingId = node.properties?.["id"];
-                const slug = typeof existingId === "string" ? existingId : slugger.slug(text);
+                const slug = typeof existingId === "string" && existingId ? existingId : slugger.slug(text);
 
-                if (typeof existingId !== "string") {
+                if (typeof existingId !== "string" || !existingId) {
                     ctx.setProperty(node, "id", slug);
                 }
 
@@ -196,7 +196,11 @@ const isTocMarker = (value: string): boolean => {
  * @param ctx The Sätteri visitor context
  * @param options The resolved TOC options
  */
-const replaceTocMarker = (node: Readonly<HastNode>, ctx: HastVisitorContext, options: Required<RehypeCustomTocOptions>): void => {
+const replaceTocMarker = (
+    node: Readonly<HastNode>,
+    ctx: HastVisitorContext,
+    options: Required<RehypeCustomTocOptions>
+): void => {
     if ((node.type !== "comment" && node.type !== "raw") || !isTocMarker(node.value)) return;
     if (!isTocEnabled(ctx.data)) return;
 

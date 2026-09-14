@@ -9,7 +9,8 @@
     "build": "tsc",
     "format": "prettier ./src/ --write",
     "format:check": "prettier ./src/ --check",
-    "lint": "knip && npx eslint ./src/**/*.ts",
+    "lint": "knip && npx eslint ./src",
+    "test": "vitest",
     "version": "npm run build && git add .",
     "changeset-version": "changeset version && npm run version",
     "changeset-publish": "npm run build && changeset publish"
@@ -58,6 +59,7 @@
     "knip": "^6.0.0",
     "prettier": "^3.2.5",
     "typescript": "^6.0.0",
-    "vfile": "^6.0.3"
+    "vfile": "^6.0.3",
+    "vitest": "^5.0.0"
   }
 }
