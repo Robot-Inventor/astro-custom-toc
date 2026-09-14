@@ -46,7 +46,7 @@
     "github-slugger": "^2.0.0",
     "rehype-custom-toc": "^1.0.0",
     "remark-comment": "^1.0.0",
-    "satteri": "^0.9.1",
+    "satteri": "^0.10.0",
     "unified": "^11.0.4"
   },
   "peerDependencies": {
