@@ -1,3 +1,5 @@
 {
-    "project": ["src/**/*.ts"]
+    "$schema": "https://unpkg.com/knip@6/schema.json",
+    "project": ["src/**/*.ts"],
+    "ignoreDependencies": ["eslint-plugin-import-x", "eslint-plugin-jsdoc"]
 }

@@ -28,7 +28,7 @@ declare module "mdast" {
  */
 const astroCustomToc = (options?: RehypeCustomTocOptions): AstroIntegration => ({
     hooks: {
-        // eslint-disable-next-line jsdoc/require-jsdoc
+        // oxlint-disable-next-line jsdoc-js/require-jsdoc
         "astro:config:setup": ({ config, logger }): void => {
             const { processor } = config.markdown;
 
