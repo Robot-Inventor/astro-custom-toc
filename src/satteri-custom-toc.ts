@@ -1,6 +1,6 @@
+import { type HastNode, type HastPluginDefinition, type HastVisitorContext, defineHastPlugin } from "satteri";
 import type { RehypeCustomTocOptions, RehypeCustomTocTemplate } from "rehype-custom-toc";
 import Slugger from "github-slugger";
-import { defineHastPlugin } from "satteri";
 
 /**
  * Default TOC template that wraps the list HTML in an `<aside>` container.
@@ -22,7 +22,7 @@ const DEFAULT_OPTIONS: Required<RehypeCustomTocOptions> = {
     template: DEFAULT_TEMPLATE
 };
 
-/** Per-document data-bag key: whether the TOC was already inserted by the marker plugin. */
+/** Per-document data-bag key: whether a marker or fallback TOC has been handled. */
 const TOC_HANDLED_KEY = "astroCustomTocHandled";
 
 /** Per-document data-bag key: collected heading data. */
@@ -41,8 +41,6 @@ interface TocListNode {
     children: Array<string | TocListNode>;
     tag: string;
 }
-
-type SatteriTocPlugin = ReturnType<typeof defineHastPlugin>;
 
 /**
  * Escape HTML special characters in a string so it is safe to inline inside element contents and attribute values.
@@ -156,7 +154,7 @@ const getSlugger = (data: Record<string, unknown>): Slugger => {
  * Create the heading-collector plugin that sets heading IDs and collects heading data into `ctx.data`.
  * @returns The Sätteri HAST plugin definition
  */
-const createHeadingCollector = (): SatteriTocPlugin =>
+const createHeadingCollector = (): HastPluginDefinition =>
     defineHastPlugin({
         element: {
             filter: ["h1", "h2", "h3", "h4", "h5", "h6"],
@@ -183,58 +181,102 @@ const createHeadingCollector = (): SatteriTocPlugin =>
     });
 
 /**
+ * Check whether a HAST text-bearing node is the TOC marker.
+ * @param value The node value
+ * @returns `true` when the value is a TOC marker
+ */
+const isTocMarker = (value: string): boolean => {
+    const trimmedValue = value.trim();
+    return trimmedValue.toLowerCase() === "toc" || /^<!--\s*toc\s*-->$/iu.test(trimmedValue);
+};
+
+/**
+ * Replace a TOC marker with the generated TOC.
+ * @param node The marker node
+ * @param ctx The Sätteri visitor context
+ * @param options The resolved TOC options
+ */
+const replaceTocMarker = (node: Readonly<HastNode>, ctx: HastVisitorContext, options: Required<RehypeCustomTocOptions>): void => {
+    if ((node.type !== "comment" && node.type !== "raw") || !isTocMarker(node.value)) return;
+    if (!isTocEnabled(ctx.data)) return;
+
+    ctx.data[TOC_HANDLED_KEY] = true;
+
+    const tocNode = createTocNode(readHeadings(ctx.data), options);
+    const parent = ctx.parent(node);
+    const isWrappedInParagraph =
+        // eslint-disable-next-line no-magic-numbers
+        parent?.type === "element" && parent.tagName === "p" && parent.children.length === 1;
+    const target = isWrappedInParagraph ? parent : node;
+
+    if (tocNode) {
+        ctx.replaceNode(target, tocNode);
+    } else {
+        ctx.removeNode(target);
+    }
+};
+
+/**
  * Create the marker plugin that finds `<!-- toc -->` and replaces it with the generated TOC.
  * @param options The resolved TOC options
  * @returns The Sätteri HAST plugin definition
  */
-const createMarkerPlugin = (options: Required<RehypeCustomTocOptions>): SatteriTocPlugin =>
+const createMarkerPlugin = (options: Required<RehypeCustomTocOptions>): HastPluginDefinition =>
     defineHastPlugin({
         // eslint-disable-next-line jsdoc/require-jsdoc
         comment(node, ctx) {
-            if (ctx.data[TOC_HANDLED_KEY] === true || node.value.trim().toLowerCase() !== "toc") return;
-            if (!isTocEnabled(ctx.data)) return;
-
-            ctx.data[TOC_HANDLED_KEY] = true;
-
-            const tocNode = createTocNode(readHeadings(ctx.data), options);
-            const parent = ctx.parent(node);
-            const isWrappedInParagraph =
-                // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition, no-magic-numbers
-                parent?.type === "element" && parent.tagName === "p" && parent.children.length === 1;
-            const target = isWrappedInParagraph ? parent : node;
-
-            if (tocNode) {
-                ctx.replaceNode(target, tocNode);
-            } else {
-                ctx.removeNode(target);
-            }
+            replaceTocMarker(node, ctx, options);
         },
-        name: "astro-custom-toc-marker"
+        name: "astro-custom-toc-marker",
+        // eslint-disable-next-line jsdoc/require-jsdoc
+        raw(node, ctx) {
+            replaceTocMarker(node, ctx, options);
+        }
     });
 
 /**
- * Create the fallback plugin that inserts the TOC before the first element when no `<!-- toc -->` marker exists.
+ * Create the fallback plugin that inserts the TOC at the beginning when no `<!-- toc -->` marker exists.
  * @param options The resolved TOC options
  * @returns The Sätteri HAST plugin definition
  */
-const createFallbackPlugin = (options: Required<RehypeCustomTocOptions>): SatteriTocPlugin =>
-    defineHastPlugin({
+const createFallbackPlugin = (options: Required<RehypeCustomTocOptions>): HastPluginDefinition => {
+    /**
+     * Insert the fallback TOC before the first root-level node.
+     * @param node The first visited node
+     * @param ctx The Sätteri visitor context
+     */
+    const insertFallback = (node: Readonly<HastNode>, ctx: HastVisitorContext): void => {
+        if (ctx.data[TOC_HANDLED_KEY] === true) return;
+        ctx.data[TOC_HANDLED_KEY] = true;
+        if (!isTocEnabled(ctx.data)) return;
+
+        const tocNode = createTocNode(readHeadings(ctx.data), options);
+        if (tocNode) ctx.insertBefore(node, tocNode);
+    };
+
+    return defineHastPlugin({
+        // eslint-disable-next-line jsdoc/require-jsdoc
+        comment(node, ctx) {
+            insertFallback(node, ctx);
+        },
         element: {
             filter: [],
             // eslint-disable-next-line jsdoc/require-jsdoc
             visit(node, ctx) {
-                if (ctx.data[TOC_HANDLED_KEY] === true) return;
-                ctx.data[TOC_HANDLED_KEY] = true;
-                if (!isTocEnabled(ctx.data)) return;
-
-                const tocNode = createTocNode(readHeadings(ctx.data), options);
-                if (!tocNode) return;
-
-                ctx.insertBefore(node, tocNode);
+                insertFallback(node, ctx);
             }
         },
-        name: "astro-custom-toc-fallback"
+        name: "astro-custom-toc-fallback",
+        // eslint-disable-next-line jsdoc/require-jsdoc
+        raw(node, ctx) {
+            insertFallback(node, ctx);
+        },
+        // eslint-disable-next-line jsdoc/require-jsdoc
+        text(node, ctx) {
+            insertFallback(node, ctx);
+        }
     });
+};
 
 /**
  * Create the Sätteri HAST plugins for TOC generation.
@@ -242,13 +284,13 @@ const createFallbackPlugin = (options: Required<RehypeCustomTocOptions>): Satter
  * Three plugins are returned and must be appended to `hastPlugins` in order:
  * 1. Heading collector — sets heading IDs and collects heading data into `ctx.data`.
  * 2. Marker — finds `<!-- toc -->` and replaces it with the generated TOC.
- * 3. Fallback — if no marker was found, inserts the TOC before the first element.
+ * 3. Fallback — if no marker was found, inserts the TOC before the first root-level node.
  *
  * All per-document state lives in `ctx.data` (never in closures) to avoid leaking across documents.
  * @param userOptions Options for the TOC
  * @returns An array of three Sätteri HAST plugin definitions
  */
-const createSatteriTocPlugins = (userOptions?: RehypeCustomTocOptions): SatteriTocPlugin[] => {
+const createSatteriTocPlugins = (userOptions?: RehypeCustomTocOptions): HastPluginDefinition[] => {
     const options: Required<RehypeCustomTocOptions> = { ...DEFAULT_OPTIONS, ...userOptions };
     return [createHeadingCollector(), createMarkerPlugin(options), createFallbackPlugin(options)];
 };
