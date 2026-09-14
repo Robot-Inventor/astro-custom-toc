@@ -1,5 +1,19 @@
 # astro-custom-toc
 
+## 5.0.0
+
+### Major Changes
+
+- [#532](https://github.com/Robot-Inventor/astro-custom-toc/pull/532) [`02520df`](https://github.com/Robot-Inventor/astro-custom-toc/commit/02520dfecccfaadcc6333951c69e4ce615dc5c5a) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - feat: add support for Astro v7 and drop support for v6
+
+### Patch Changes
+
+- [#529](https://github.com/Robot-Inventor/astro-custom-toc/pull/529) [`9b66cdf`](https://github.com/Robot-Inventor/astro-custom-toc/commit/9b66cdfa016e95f092d2b28ba6e00ce1e71c5d5b) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - chore: update vulnerable dependencies
+
+- [#523](https://github.com/Robot-Inventor/astro-custom-toc/pull/523) [`11df621`](https://github.com/Robot-Inventor/astro-custom-toc/commit/11df62153eacdedd81b9ee93604ee11b7d1b4a16) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency rehype-custom-toc to v1.0.6
+
+- [#535](https://github.com/Robot-Inventor/astro-custom-toc/pull/535) [`f3efc78`](https://github.com/Robot-Inventor/astro-custom-toc/commit/f3efc7884d134c9cf532d7e2ba2b8d590272dac9) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency rehype-custom-toc to v1.1.3
+
 ## 4.0.6
 
 ### Patch Changes
