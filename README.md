@@ -3,7 +3,10 @@
 Astro Integration to generate a customizable table of contents. This is a convenient wrapper for [rehype-custom-toc](https://github.com/Robot-Inventor/rehype-custom-toc/). If you are not using Astro, you can directly use rehype-custom-toc instead.
 
 > [!WARNING]
-> This plugin uses [remark-comment](https://github.com/leebyron/remark-comment). It may break other plugins that use comments.
+> This plugin uses [remark-comment](https://github.com/leebyron/remark-comment) when using the `unified` Markdown processor. It may break other plugins that use comments. When using the Sätteri processor (Astro v7 default), HTML comments are handled natively and `remark-comment` is not used.
+
+> [!TIP]
+> Since astro-custom-toc v5 supports only Astro v7, please use v4 if you are using Astro v6.
 
 ## Installation
 
@@ -19,7 +22,7 @@ Install the package
 npm install astro-custom-toc
 ```
 
-Add the plugin to your `astro.config.mjs`. **This plugin must be inserted before the [mdx()](https://github.com/withastro/astro/tree/main/packages/integrations/mdx/) plugin if you are using it.**
+Add the plugin to your `astro.config.mjs`.
 
 ```javascript
 import { defineConfig } from "astro/config";
@@ -28,13 +31,20 @@ import customToc from "astro-custom-toc";
 // https://astro.build/config
 export default defineConfig({
     // ... other config
-    integrations: [customToc(), mdx()]
+    integrations: [customToc()]
 });
 ```
 
+## Markdown processor support
+
+astro-custom-toc works with both Markdown processors supported by Astro v7:
+
+- **Sätteri** (default): Astro's native Markdown pipeline. No extra setup is needed.
+- **Unified** (remark/rehype): Set `markdown.processor: unified()` from `@astrojs/markdown-remark` to use this processor.
+
 ## Usage
 
-To include a table of contents in your markdown file, add ``showToc: true`` to the frontmatter of the markdown file. The table of contents will be inserted at the location of the `<!-- toc -->` comment or at the beginning of the file if no comment is found.
+To include a table of contents in your markdown file, add `showToc: true` to the frontmatter of the markdown file. The table of contents will be inserted at the location of the `<!-- toc -->` comment or at the beginning of the file if no comment is found.
 
 ```markdown
 ---
