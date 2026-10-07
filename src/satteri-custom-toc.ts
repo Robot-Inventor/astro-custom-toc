@@ -19,6 +19,7 @@ const DEFAULT_TEMPLATE: RehypeCustomTocTemplate = (html) =>
 
 const DEFAULT_OPTIONS: Required<RehypeCustomTocOptions> = {
     maxDepth: 3,
+    minDepth: 1,
     ordered: false,
     template: DEFAULT_TEMPLATE
 };
@@ -69,7 +70,7 @@ const serializeTocNode = (node: TocListNode): string =>
  */
 // oxlint-disable-next-line max-statements
 const generateTocListHtml = (headings: readonly TocHeading[], options: Required<RehypeCustomTocOptions>): string => {
-    const filteredHeadings = headings.filter((heading) => heading.depth <= options.maxDepth);
+    const filteredHeadings = headings.filter((heading) => heading.depth >= options.minDepth && heading.depth <= options.maxDepth);
     if (!filteredHeadings.length) return "";
 
     const tag = options.ordered ? "ol" : "ul";
@@ -82,15 +83,15 @@ const generateTocListHtml = (headings: readonly TocHeading[], options: Required<
 
     for (const heading of filteredHeadings) {
         const listItem = `<li><a href="#${escapeHtml(heading.slug)}">${escapeHtml(heading.text)}</a></li>`;
+        const depth = heading.depth - options.minDepth + 1;
 
-        if (heading.depth === currentDepth) {
+        if (depth === currentDepth) {
             currentParent.children.push(listItem);
-        } else if (heading.depth > currentDepth) {
+        } else if (depth > currentDepth) {
             const nested: TocListNode = { children: [listItem], tag };
             currentParent.children.push(nested);
             currentParent = nested;
             parents.push(currentParent);
-            currentDepth = heading.depth;
         } else {
             for (let index = 0; index < currentDepth - heading.depth; index++) {
                 parents.pop();
@@ -98,8 +99,9 @@ const generateTocListHtml = (headings: readonly TocHeading[], options: Required<
                 currentParent = parents.at(-1) ?? root;
             }
             currentParent.children.push(listItem);
-            currentDepth = heading.depth;
         }
+
+        currentDepth = heading.depth - options.minDepth + 1;
     }
 
     return serializeTocNode(root);
