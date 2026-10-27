@@ -34,7 +34,9 @@ This is a sample markdown paragraph.
 const renderMarkdown = async (
     source: string,
     options?: RehypeCustomTocOptions,
-    frontmatter: Record<string, unknown> = { showToc: true }
+    frontmatter: Record<string, unknown> = {
+        showToc: true
+    }
 ): Promise<string> => {
     const processor = await createSatteriMarkdownProcessor({
         hastPlugins: createSatteriTocPlugins(options),
@@ -222,8 +224,16 @@ it("satteri-custom-toc isolates state between documents", async () => {
         hastPlugins: createSatteriTocPlugins(),
         syntaxHighlight: false
     });
-    const firstResult = await processor.render("# Same\n\n<!-- toc -->", { frontmatter: { showToc: true } });
-    const secondResult = await processor.render("# Same\n\n<!-- toc -->", { frontmatter: { showToc: true } });
+    const firstResult = await processor.render("# Same\n\n<!-- toc -->", {
+        frontmatter: {
+            showToc: true
+        }
+    });
+    const secondResult = await processor.render("# Same\n\n<!-- toc -->", {
+        frontmatter: {
+            showToc: true
+        }
+    });
 
     expect(firstResult.code).toContain('<li><a href="#same">Same</a></li>');
     expect(secondResult.code).toBe(firstResult.code);
@@ -240,11 +250,17 @@ it("satteri-custom-toc generates unique IDs for duplicate headings", async () =>
 
 it("satteri-custom-toc preserves explicit heading IDs", async () => {
     const processor = await createSatteriMarkdownProcessor({
-        features: { headingAttributes: true },
+        features: {
+            headingAttributes: true
+        },
         hastPlugins: createSatteriTocPlugins(),
         syntaxHighlight: false
     });
-    const result = await processor.render("# Title {#custom-id}\n\n<!-- toc -->", { frontmatter: { showToc: true } });
+    const result = await processor.render("# Title {#custom-id}\n\n<!-- toc -->", {
+        frontmatter: {
+            showToc: true
+        }
+    });
 
     expect(result.code).toContain('<h1 id="custom-id">Title</h1>');
     expect(result.code).toContain('<li><a href="#custom-id">Title</a></li>');
@@ -271,7 +287,11 @@ it("satteri-custom-toc replaces empty heading IDs", async () => {
         ],
         syntaxHighlight: false
     });
-    const result = await processor.render("# Title\n\n<!-- toc -->", { frontmatter: { showToc: true } });
+    const result = await processor.render("# Title\n\n<!-- toc -->", {
+        frontmatter: {
+            showToc: true
+        }
+    });
 
     expect(result.code).toContain('<h1 id="title">Title</h1>');
     expect(result.code).toContain('<li><a href="#title">Title</a></li>');

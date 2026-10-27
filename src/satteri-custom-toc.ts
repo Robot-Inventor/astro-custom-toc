@@ -73,7 +73,10 @@ const generateTocListHtml = (headings: readonly TocHeading[], options: Required<
     if (!filteredHeadings.length) return "";
 
     const tag = options.ordered ? "ol" : "ul";
-    const root: TocListNode = { children: [], tag };
+    const root: TocListNode = {
+        children: [],
+        tag
+    };
     let currentParent: TocListNode = root;
     const [firstHeading] = filteredHeadings;
     if (!firstHeading) return "";
@@ -86,7 +89,10 @@ const generateTocListHtml = (headings: readonly TocHeading[], options: Required<
         if (heading.depth === currentDepth) {
             currentParent.children.push(listItem);
         } else if (heading.depth > currentDepth) {
-            const nested: TocListNode = { children: [listItem], tag };
+            const nested: TocListNode = {
+                children: [listItem],
+                tag
+            };
             currentParent.children.push(nested);
             currentParent = nested;
             parents.push(currentParent);
@@ -117,7 +123,10 @@ const createTocNode = (
 ): { type: "raw"; value: string } | null => {
     const listHtml = generateTocListHtml(headings, options);
     if (!listHtml) return null;
-    return { type: "raw", value: options.template(listHtml) };
+    return {
+        type: "raw",
+        value: options.template(listHtml)
+    };
 };
 
 /**
@@ -256,7 +265,9 @@ const createFallbackPlugin = (options: Required<RehypeCustomTocOptions>): HastPl
         if (!isTocEnabled(ctx.data)) return;
 
         const tocNode = createTocNode(readHeadings(ctx.data), options);
-        if (tocNode) ctx.insertBefore(node, tocNode);
+        if (tocNode) {
+            ctx.insertBefore(node, tocNode);
+        }
     };
 
     return defineHastPlugin({

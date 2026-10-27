@@ -33,7 +33,12 @@ const astroCustomToc = (options?: RehypeCustomTocOptions): AstroIntegration => (
             const { processor } = config.markdown;
 
             if (isUnifiedProcessor(processor)) {
-                processor.options.remarkPlugins.push([remarkComment, { ast: true }]);
+                processor.options.remarkPlugins.push([
+                    remarkComment,
+                    {
+                        ast: true
+                    }
+                ]);
                 processor.options.rehypePlugins.push(rehypeHeadingIds, [rehypeCustomToc, options]);
 
                 const { remarkRehype: remarkRehypeOptions } = processor.options;
