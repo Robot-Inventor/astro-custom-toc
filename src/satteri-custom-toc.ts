@@ -211,7 +211,8 @@ const replaceTocMarker = (
     ctx: HastVisitorContext,
     options: Required<RehypeCustomTocOptions>
 ): void => {
-    if ((node.type !== "comment" && node.type !== "raw") || !isTocMarker(node.value)) return;
+    const isCommentNode = (node.type === "comment" || node.type === "raw") && isTocMarker(node.value);
+    if (!isCommentNode) return;
     if (!isTocEnabled(ctx.data)) return;
 
     ctx.data[TOC_HANDLED_KEY] = true;
