@@ -1,5 +1,13 @@
 # astro-custom-toc
 
+## 5.0.2
+
+### Patch Changes
+
+- [#622](https://github.com/Robot-Inventor/astro-custom-toc/pull/622) [`7428e08`](https://github.com/Robot-Inventor/astro-custom-toc/commit/7428e0872f14d1b1f88c52c46865243a0af12c01) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - refactor: extract complex condition
+
+- [#621](https://github.com/Robot-Inventor/astro-custom-toc/pull/621) [`eef4d74`](https://github.com/Robot-Inventor/astro-custom-toc/commit/eef4d741babb6e4e3109801c253d8abad0be1f6b) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency rehype-custom-toc to v1.1.7
+
 ## 5.0.1
 
 ### Patch Changes
