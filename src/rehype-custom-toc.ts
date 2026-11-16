@@ -25,6 +25,7 @@ const rehypeCustomToc: Plugin<[RehypeCustomTocOptions], Root> = (userOptions: Re
     return (tree: Root, file) => {
         // @ts-expect-error Disable a TypeScript rule because it conflicts with an ESLint rule.
         if (file.data.astro?.frontmatter?.showToc !== true) return;
+
         void transformer(tree, file);
     };
 };

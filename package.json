@@ -33,7 +33,7 @@
     "build": "tsc",
     "format": "oxfmt --write .",
     "format:check": "oxfmt --check .",
-    "lint": "knip && oxlint ./src",
+    "lint": "tsc --noEmit && knip && oxlint src",
     "test": "vitest",
     "version": "npm run build && git add .",
     "changeset-version": "changeset version && npm run version",

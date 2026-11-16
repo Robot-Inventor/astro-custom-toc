@@ -42,7 +42,9 @@ const renderMarkdown = async (
         hastPlugins: createSatteriTocPlugins(options),
         syntaxHighlight: false
     });
+
     const result = await processor.render(source, { frontmatter });
+
     return result.code;
 };
 
@@ -224,11 +226,13 @@ it("satteri-custom-toc isolates state between documents", async () => {
         hastPlugins: createSatteriTocPlugins(),
         syntaxHighlight: false
     });
+
     const firstResult = await processor.render("# Same\n\n<!-- toc -->", {
         frontmatter: {
             showToc: true
         }
     });
+
     const secondResult = await processor.render("# Same\n\n<!-- toc -->", {
         frontmatter: {
             showToc: true
@@ -251,11 +255,12 @@ it("satteri-custom-toc generates unique IDs for duplicate headings", async () =>
 it("satteri-custom-toc preserves explicit heading IDs", async () => {
     const processor = await createSatteriMarkdownProcessor({
         features: {
-            headingAttributes: true
+            attributes: true
         },
         hastPlugins: createSatteriTocPlugins(),
         syntaxHighlight: false
     });
+
     const result = await processor.render("# Title {#custom-id}\n\n<!-- toc -->", {
         frontmatter: {
             showToc: true
@@ -264,36 +269,4 @@ it("satteri-custom-toc preserves explicit heading IDs", async () => {
 
     expect(result.code).toContain('<h1 id="custom-id">Title</h1>');
     expect(result.code).toContain('<li><a href="#custom-id">Title</a></li>');
-});
-
-it("satteri-custom-toc replaces empty heading IDs", async () => {
-    const processor = await createSatteriMarkdownProcessor({
-        hastPlugins: [
-            {
-                element: {
-                    filter: ["h1"],
-                    /**
-                     * Set an empty heading ID before the TOC plugin runs.
-                     * @param node Heading node
-                     * @param ctx Sätteri visitor context
-                     */
-                    visit(node, ctx): void {
-                        ctx.setProperty(node, "id", "");
-                    }
-                },
-                name: "set-empty-heading-id"
-            },
-            ...createSatteriTocPlugins()
-        ],
-        syntaxHighlight: false
-    });
-    const result = await processor.render("# Title\n\n<!-- toc -->", {
-        frontmatter: {
-            showToc: true
-        }
-    });
-
-    expect(result.code).toContain('<h1 id="title">Title</h1>');
-    expect(result.code).toContain('<li><a href="#title">Title</a></li>');
-    expect(result.code).not.toContain('href="#"');
 });

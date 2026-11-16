@@ -28,7 +28,6 @@ declare module "mdast" {
  */
 const astroCustomToc = (options?: RehypeCustomTocOptions): AstroIntegration => ({
     hooks: {
-        // oxlint-disable-next-line jsdoc-js/require-jsdoc
         "astro:config:setup": ({ config, logger }): void => {
             const { processor } = config.markdown;
 
@@ -39,6 +38,7 @@ const astroCustomToc = (options?: RehypeCustomTocOptions): AstroIntegration => (
                         ast: true
                     }
                 ]);
+
                 processor.options.rehypePlugins.push(rehypeHeadingIds, [rehypeCustomToc, options]);
 
                 const { remarkRehype: remarkRehypeOptions } = processor.options;
