@@ -77,9 +77,11 @@ const generateTocListHtml = (headings: readonly TocHeading[], options: Required<
         children: [],
         tag
     };
+
     let currentParent: TocListNode = root;
     const [firstHeading] = filteredHeadings;
     if (!firstHeading) return "";
+
     let currentDepth = firstHeading.depth;
     const parents: TocListNode[] = [root];
 
@@ -93,6 +95,7 @@ const generateTocListHtml = (headings: readonly TocHeading[], options: Required<
                 children: [listItem],
                 tag
             };
+
             currentParent.children.push(nested);
             currentParent = nested;
             parents.push(currentParent);
@@ -103,6 +106,7 @@ const generateTocListHtml = (headings: readonly TocHeading[], options: Required<
                 // oxlint-disable-next-line no-magic-numbers
                 currentParent = parents.at(-1) ?? root;
             }
+
             currentParent.children.push(listItem);
             currentDepth = heading.depth;
         }
@@ -123,6 +127,7 @@ const createTocNode = (
 ): { type: "raw"; value: string } | null => {
     const listHtml = generateTocListHtml(headings, options);
     if (!listHtml) return null;
+
     return {
         type: "raw",
         value: options.template(listHtml)
@@ -136,6 +141,7 @@ const createTocNode = (
  */
 const isTocEnabled = (data: Record<string, unknown>): boolean => {
     const astro = data["astro"] as { frontmatter: Record<string, unknown> } | undefined;
+
     return astro?.frontmatter["showToc"] === true;
 };
 
@@ -155,8 +161,10 @@ const readHeadings = (data: Record<string, unknown>): TocHeading[] =>
 const getSlugger = (data: Record<string, unknown>): Slugger => {
     const existing = data[SLUGGER_KEY] as Slugger | undefined;
     if (existing) return existing;
+
     const slugger = new Slugger();
     data[SLUGGER_KEY] = slugger;
+
     return slugger;
 };
 
@@ -168,7 +176,6 @@ const createHeadingCollector = (): HastPluginDefinition =>
     defineHastPlugin({
         element: {
             filter: ["h1", "h2", "h3", "h4", "h5", "h6"],
-            // oxlint-disable-next-line jsdoc-js/require-jsdoc
             visit(node, ctx) {
                 const slugger = getSlugger(ctx.data);
                 const text = ctx.textContent(node);
@@ -197,6 +204,7 @@ const createHeadingCollector = (): HastPluginDefinition =>
  */
 const isTocMarker = (value: string): boolean => {
     const trimmedValue = value.trim();
+
     return trimmedValue.toLowerCase() === "toc" || /^<!--\s*toc\s*-->$/iu.test(trimmedValue);
 };
 
@@ -222,6 +230,7 @@ const replaceTocMarker = (
     const isWrappedInParagraph =
         // oxlint-disable-next-line no-magic-numbers
         parent?.type === "element" && parent.tagName === "p" && parent.children.length === 1;
+
     const target = isWrappedInParagraph ? parent : node;
 
     if (tocNode) {
@@ -238,12 +247,10 @@ const replaceTocMarker = (
  */
 const createMarkerPlugin = (options: Required<RehypeCustomTocOptions>): HastPluginDefinition =>
     defineHastPlugin({
-        // oxlint-disable-next-line jsdoc-js/require-jsdoc
         comment(node, ctx) {
             replaceTocMarker(node, ctx, options);
         },
         name: "astro-custom-toc-marker",
-        // oxlint-disable-next-line jsdoc-js/require-jsdoc
         raw(node, ctx) {
             replaceTocMarker(node, ctx, options);
         }
@@ -262,6 +269,7 @@ const createFallbackPlugin = (options: Required<RehypeCustomTocOptions>): HastPl
      */
     const insertFallback = (node: Readonly<HastNode>, ctx: HastVisitorContext): void => {
         if (ctx.data[TOC_HANDLED_KEY] === true) return;
+
         ctx.data[TOC_HANDLED_KEY] = true;
         if (!isTocEnabled(ctx.data)) return;
 
@@ -272,23 +280,19 @@ const createFallbackPlugin = (options: Required<RehypeCustomTocOptions>): HastPl
     };
 
     return defineHastPlugin({
-        // oxlint-disable-next-line jsdoc-js/require-jsdoc
         comment(node, ctx) {
             insertFallback(node, ctx);
         },
         element: {
             filter: [],
-            // oxlint-disable-next-line jsdoc-js/require-jsdoc
             visit(node, ctx) {
                 insertFallback(node, ctx);
             }
         },
         name: "astro-custom-toc-fallback",
-        // oxlint-disable-next-line jsdoc-js/require-jsdoc
         raw(node, ctx) {
             insertFallback(node, ctx);
         },
-        // oxlint-disable-next-line jsdoc-js/require-jsdoc
         text(node, ctx) {
             insertFallback(node, ctx);
         }
@@ -309,6 +313,7 @@ const createFallbackPlugin = (options: Required<RehypeCustomTocOptions>): HastPl
  */
 const createSatteriTocPlugins = (userOptions?: RehypeCustomTocOptions): HastPluginDefinition[] => {
     const options: Required<RehypeCustomTocOptions> = { ...DEFAULT_OPTIONS, ...userOptions };
+
     return [createHeadingCollector(), createMarkerPlugin(options), createFallbackPlugin(options)];
 };
 
