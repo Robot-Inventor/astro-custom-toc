@@ -50,7 +50,7 @@
     "unified": "^11.0.4"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "^1.0.0",
+    "@changesets/changelog-github": "^2.0.0",
     "@changesets/cli": "^3.0.0",
     "@robot-inventor/oxlint-config": "^2.0.0",
     "@robot-inventor/tsconfig-base": "^7.0.0",
